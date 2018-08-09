@@ -8,9 +8,15 @@ var VideoListView = Backbone.View.extend({
 
 
     // added:
-    this.collection.map(function (video) {
-      return new VideoListEntryView({ el: '.video-list', model: video }).render();
-    });
+    // this.collection.map(function (video) {
+    //   return new VideoListEntryView({ el: '.video-list', model: video }).render();
+    // });
+
+    this.$('.video-list').html(
+      this.collection.map(function (video) {
+        return new VideoListEntryView({ model: video }).render();
+      })
+    );
 
     return this;
   },
